@@ -113,6 +113,16 @@ container .app-header {
     color: #6f42c1;
 }
 
+
+
+
+
+
+
+
+
+
+
 .container .chats-conainer {
     display: flex;
     flex-direction: column;
@@ -160,6 +170,15 @@ container .app-header {
     background: var(--secondary-color);
 }
 
+
+
+
+
+
+
+
+
+
 .prompt-container {
     position: fixed;
     bottom: 0;
@@ -194,7 +213,7 @@ container .app-header {
     color: var(--text-color);
 }
 
-.prompt-form .prompt-input ::placeholder {
+.prompt-form .prompt-input::placeholder {
     color: var(--placeholder-color);
 }
 
@@ -233,7 +252,7 @@ container .app-header {
     background: #1d7efd;
 }
 
-.prompt-form .prompt-input:valid ~ .prompt-actions #send-prompt-btn {
+.prompt-form .prompt-input:valid ~ .prompt-actions #send-prompt-btn{
     display: block;  /*chcek this line later*/
 }
 

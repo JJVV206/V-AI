@@ -5,7 +5,7 @@ let userMessage = "";
 
 const handlenFormSubmit = (e) => {
     e.preventDefault();
-    userMessage = promptInput.ariaValueMax.trim();
+    userMessage = promptInput.value.trim();
 
     if(!userMessage) return;
 
