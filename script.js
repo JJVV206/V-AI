@@ -14,14 +14,15 @@ const createMsgElement = (content, className) => {
 const handlenFormSubmit = (e) => {
     e.preventDefault();
     userMessage = promptInput.value.trim();
-
     if(!userMessage) return;
 
-    const userMsgHTML = `<p class="message-text"></p>`
+    console.log(userMessage)
+
+    const userMsgHTML = `<p class="message-text"></p>`;
     const userMsgDiv = createMsgElement(userMsgHTML, "user-message")
 
-    userMsgDiv.querySelector("message-text").textContent = userMessage;
-    chatsContainer.appendChild(userMsgDiv);
+    userMsgDiv.querySelector(".message-text").textContent = userMessage;
+    chatsContainer.appendChild(userMsgDiv)
 }
 
-promptForm.addEventListener("submit" , handlenFormSubmit);
+promptForm.addEventListener("submit", handlenFormSubmit);
