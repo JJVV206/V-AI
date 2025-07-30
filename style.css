@@ -62,7 +62,9 @@ container .app-header {
 
 }
 
-
+.container :is(.app-header, .suggestions) {
+    display: none;
+}
 
 .suggestions .suggestions-item {
     width: 228px;
