@@ -1,0 +1,15 @@
+const promptForm = document.querySelector(".prompt-form");
+const promptInput = document.querySelector(".prompt-input");
+
+let userMessage = "";
+
+const handlenFormSubmit = (e) => {
+    e.preventDefault();
+    userMessage = promptInput.ariaValueMax.trim();
+
+    if(!userMessage) return;
+
+    console.log(userMessage)
+}
+
+promptForm.addEventListener("submit" , handlenFormSubmit);
