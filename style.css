@@ -21,3 +21,14 @@ body {
     color: var(--text-color);
     background: var(--primary-color);
 }
+
+.container {
+    padding: 32px 0 60px;
+}
+
+.container :where(.app-header, .suggestions, .prompt-wrapper, .disclaimer-text) {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    max-width: 980px;
+}
