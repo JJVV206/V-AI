@@ -16,6 +16,21 @@ const createMsgElement = (content, ...classes) => {
     return div;
 }
 
+const typinEffect = (text, textElement, botMsgDiv) => {
+    textElement.textContent = "";
+    const words = text.split(" ");
+    let wordIndex = 0;
+
+    const typingInterval = setInterval(() => {
+        if(wordIndex < words.length) {
+            textElement.textContent += (wordIndex === 0 ? "" : " ") + words[wordIndex++];
+            botMsgDiv.classList.remove("loading");
+        } else {
+            clearInterval(typingInterval);
+        }
+    }, 40);
+}
+
 const generateResponse = async (botMsgDiv) => {
     const textElement = botMsgDiv.querySelector(".message-text")
 
