@@ -7,6 +7,7 @@ const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-
 key=${API_KEY}`
 
 let userMessage = "";
+const chatHistory = [];
 
 const createMsgElement = (content, ...classes) => {
     const div = document.createElement("div");
@@ -15,9 +16,18 @@ const createMsgElement = (content, ...classes) => {
     return div;
 }
 
-const generateResponse = () => {
+const generateResponse = async () => {
+chatHistory.push({
+    role: "user",
+    parts: [{ text: userMessage }]
+});
+
     try {
-        const response = await fetch()
+        const response = await fetch(API_URL, { 
+            method: "POST",
+            headers: {"content-Type": "application/json" },
+            body: JSON.stringify()
+        });
     } catch(error) {
 
     }
