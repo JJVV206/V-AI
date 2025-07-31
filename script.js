@@ -34,8 +34,9 @@ chatHistory.push({
         const data = await response.json();
         if(!response.ok) throw new Error(data.error.message);
 
-        const responseText = data.candidates[0].text.replace().trim();
+        const responseText = data.candidates[0].content.parts[0].text.replace().trim();
         textElement.textContent = responseText;
+        console.log(data)
     } catch(error) {
         console.log(error);
     }
