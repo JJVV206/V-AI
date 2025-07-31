@@ -35,8 +35,8 @@ chatHistory.push({
         if(!response.ok) throw new Error(data.error.message);
 
         const responseText = data.candidates[0].content.parts[0].text.replace().trim();
-        textElement.textContent = responseText;
-        console.log(data)
+        typinEffect(responseText, textElement, botMsgDiv);
+        chatHistory.push({ role: "model", psrts: [{ text: responseText}]})
     } catch(error) {
         console.log(error);
     }
