@@ -72,7 +72,8 @@ const handleFileUpload = (event) => {
         };
         reader.readAsDataURL(file);
     } else {
-        filePreview.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iIzMzM2U1OCIvPgo8cGF0aCBkPSJNMTIgMTZIMjhWMTlIMTJWMThaIiBmaWxsPSIjOTdhN2NhIi8+CjxwYXRoIGQ9Ik0xMiAyMUgyOFYyNEgxMlYyMVoiIGZpbGw9IiM5N2E3Y2EiLz4KPHBhdGggZD0iTTEyIDI2SDI4VjI5SDEyVjI2WiIgZmlsbD0iIzk3YTdjYSIvPgo8L3N2Zz4K';
+        filePreview.src = "docicon.svg";
+        filePreview.style.scale = 0.5;
         filePreview.style.display = 'block';
         addFileBtn.style.display = 'none';
         cancelFileBtn.style.display = 'block';
