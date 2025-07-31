@@ -33,9 +33,9 @@ const scrollToBottom = () => {
     container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
 };
 
-const typingEffect = (text, textElement, botMsgDiv) => {
+const typingEffect = (response, textElement, botMsgDiv) => {
     textElement.textContent = "";
-    const words = text.split(" ");
+    const words = response.split(" ");
     let wordIndex = 0;
 
     const typingInterval = setInterval(() => {
@@ -64,8 +64,8 @@ const handleFileUpload = (event) => {
     
     if (file.type.startsWith('image/')) {
         const reader = new FileReader();
-        reader.onload = (e) => {
-            filePreview.src = e.target.result;
+        reader.onload = (event) => {
+            filePreview.src = event.target.result;
             filePreview.style.display = 'block';
             addFileBtn.style.display = 'none';
             cancelFileBtn.style.display = 'block';
@@ -85,16 +85,7 @@ const clearFileUpload = () => {
     filePreview.style.display = 'none';
     addFileBtn.style.display = 'block';
     cancelFileBtn.style.display = 'none';
-    
-
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'image/*,.pdf';
-    fileInput.style.display = 'none';
-    document.body.appendChild(fileInput);
-    fileInput.remove();
 };
-
 
 const toggleTheme = () => {
     isDarkTheme = !isDarkTheme;
