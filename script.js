@@ -2,6 +2,10 @@ const chatsContainer = document.querySelector(".chats-container");
 const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
 
+const API_KEY = "AIzaSyBlsvOWlTml8usiWC8oKr-Y6Bfosev4CXg";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?
+key=${API_KEY}`
+
 let userMessage = "";
 
 const createMsgElement = (content, ...classes) => {
@@ -9,6 +13,14 @@ const createMsgElement = (content, ...classes) => {
     div.classList.add("message", ...classes);
     div.innerHTML = content;
     return div;
+}
+
+const generateResponse = () => {
+    try {
+        const response = await fetch()
+    } catch(error) {
+
+    }
 }
 
 const handlenFormSubmit = (e) => {
@@ -28,6 +40,7 @@ const handlenFormSubmit = (e) => {
         const botMsgHTML = `<img src="gemini-logo.webp" alt="gemini-logo" class="avatar"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading")
         chatsContainer.appendChild(botMsgDiv) 
+        generateResponse();
     }, 600)
 }
 
