@@ -16,7 +16,9 @@ const createMsgElement = (content, ...classes) => {
     return div;
 }
 
-const generateResponse = async () => {
+const generateResponse = async (botMsgHTML) => {
+    const textElement = botMsgHTML.querySelector(".message-text")
+
 chatHistory.push({
     role: "user",
     parts: [{ text: userMessage }]
@@ -32,7 +34,8 @@ chatHistory.push({
         const data = await response.json();
         if(!response.ok) throw new Error(data.error.message);
 
-        console.log(data)
+        const responseText = data.candidates[0].text.replace().trim();
+        textElement.textContent = responseText;
     } catch(error) {
         console.log(error);
     }
@@ -55,7 +58,7 @@ const handlenFormSubmit = (e) => {
         const botMsgHTML = `<img src="gemini-logo.webp" alt="gemini-logo" class="avatar"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading")
         chatsContainer.appendChild(botMsgDiv) 
-        generateResponse();
+        generateResponse(botMsgHTML);
     }, 600)
 }
 
