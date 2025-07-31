@@ -1,3 +1,4 @@
+const container = document.querySelector(".container");
 const chatsContainer = document.querySelector(".chats-container");
 const promptForm = document.querySelector(".prompt-form");
 const promptInput = promptForm.querySelector(".prompt-input");
@@ -16,6 +17,8 @@ const createMsgElement = (content, ...classes) => {
     return div;
 }
 
+const scrollToBottom = () => container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
+
 const typinEffect = (text, textElement, botMsgDiv) => {
     textElement.textContent = "";
     const words = text.split(" ");
@@ -25,6 +28,7 @@ const typinEffect = (text, textElement, botMsgDiv) => {
         if(wordIndex < words.length) {
             textElement.textContent += (wordIndex === 0 ? "" : " ") + words[wordIndex++];
             botMsgDiv.classList.remove("loading");
+            scrollToBottom();
         } else {
             clearInterval(typingInterval);
         }
@@ -69,11 +73,13 @@ const handlenFormSubmit = (e) => {
 
     userMsgDiv.querySelector(".message-text").textContent = userMessage;
     chatsContainer.appendChild(userMsgDiv)
+    scrollToBottom();
 
     setTimeout(() => {
         const botMsgHTML = `<img src="gemini-logo.webp" alt="gemini-logo" class="avatar"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading")
-        chatsContainer.appendChild(botMsgDiv) 
+        chatsContainer.appendChild(botMsgDiv)
+        scrollToBottom(); 
         generateResponse(botMsgDiv);
     }, 600)
 }
