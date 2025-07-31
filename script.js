@@ -26,10 +26,15 @@ chatHistory.push({
         const response = await fetch(API_URL, { 
             method: "POST",
             headers: {"content-Type": "application/json" },
-            body: JSON.stringify()
+            body: JSON.stringify({ contents: chatHistory })
         });
-    } catch(error) {
 
+        const data = await response.json();
+        if(!response.ok) throw new Error(data.error.message);
+
+        console.log(data)
+    } catch(error) {
+        console.log(error);
     }
 }
 
