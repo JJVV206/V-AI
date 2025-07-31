@@ -11,17 +11,17 @@ const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const deleteChatsBtn = document.getElementById("delete-chats-btn");
 const suggestionsItems = document.querySelectorAll(".suggestions-item");
 
-// API Configuration
+
 const API_KEY = "AIzaSyBlsvOWlTml8usiWC8oKr-Y6Bfosev4CXg";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-// State
+
 let userMessage = "";
 let chatHistory = [];
 let currentFile = null;
 let isDarkTheme = true;
 
-// Utility Functions
+
 const createMsgElement = (content, ...classes) => {
     const div = document.createElement("div");
     div.classList.add("message", ...classes);
