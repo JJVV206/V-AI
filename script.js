@@ -72,7 +72,7 @@ const handleFileUpload = (event) => {
         };
         reader.readAsDataURL(file);
     } else {
-        filePreview.src = "docicon.svg";
+        filePreview.src = "Images/docicon.svg";
         filePreview.style.scale = 0.5;
         filePreview.style.display = 'block';
         addFileBtn.style.display = 'none';
@@ -196,7 +196,7 @@ const handleFormSubmit = (e) => {
     scrollToBottom();
 
     setTimeout(() => {
-        const botMsgHTML = `<img src="gemini-logo.webp" alt="gemini-logo" class="avatar"><p class="message-text">Just a sec...</p>`;
+        const botMsgHTML = `<img src="Images/gemini-logo.webp" alt="gemini-logo" class="avatar"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading");
         chatsContainer.appendChild(botMsgDiv);
         scrollToBottom();
