@@ -196,7 +196,7 @@ const handleFormSubmit = (e) => {
     scrollToBottom();
 
     setTimeout(() => {
-        const botMsgHTML = `<img src="/Images/gemini-logo.webp" alt="gemini-logo" class="avatar"><p class="message-text">Just a sec...</p>`;
+        const botMsgHTML = `<img src="/Images/V-CodeAI.jpeg" class="avatar"><p class="message-text">Just a sec...</p>`;
         const botMsgDiv = createMsgElement(botMsgHTML, "bot-message", "loading");
         chatsContainer.appendChild(botMsgDiv);
         scrollToBottom();
