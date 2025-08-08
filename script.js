@@ -11,17 +11,19 @@ const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const deleteChatsBtn = document.getElementById("delete-chats-btn");
 const suggestionsItems = document.querySelectorAll(".suggestions-item");
 
-
+//API_KEY / URL
 const API_KEY = "AIzaSyBlsvOWlTml8usiWC8oKr-Y6Bfosev4CXg";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 
+//Basic page status
 let userMessage = "";
 let chatHistory = [];
 let currentFile = null;
 let isDarkTheme = true;
 
 
+// create --> div container for user message history  
 const createMsgElement = (content, ...classes) => {
     const div = document.createElement("div");
     div.classList.add("message", ...classes);
@@ -29,6 +31,7 @@ const createMsgElement = (content, ...classes) => {
     return div;
 };
 
+//auto scroll
 const scrollToBottom = () => {
     container.scrollTo({ top: container.scrollHeight, behavior: "smooth" });
 };
@@ -98,7 +101,7 @@ const toggleTheme = () => {
 const deleteAllChats = () => {
     if (chatsContainer.children.length === 0) return;
     
-    if (confirm('Are you sure you want to delete all chats?')) {
+    if (confirm('Are you sure you want to delete this chat?')) {
         chatsContainer.innerHTML = '';
         chatHistory = [];
         scrollToBottom();
